@@ -1,10 +1,3 @@
-Tutorial Rust language
-Bài 0: Install môi trường
-Các bạn tự đọc theo hướng dẫn và install theo link: https://doc.rust-lang.org/book/ch01-01-installation.html#installation
-Sau khi install xong theo hướng dẫn gõ lệnh bên dưới để kiểm tra:
-rustc --version
-Nếu trả về cấu trúc: rustc x.y.z (abcabcabc yyyy-mm-dd) thì đã install thành công.
-
 Bài 1: Cargo và tạo project đầu tiên
 1. cargo new [options] path: 
 Câu lệnh sẽ tạo 1 project mới với thư mục giống tên project bao gồm:
