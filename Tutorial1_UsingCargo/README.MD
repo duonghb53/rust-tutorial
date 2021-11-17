@@ -20,11 +20,21 @@ Trong project bao gồm:
 Project sử dụng --bin sẽ build ra file binary
 Project sử dụng --lib sẽ build ra file lib( ,rlib)
 
-Cụ thể các [options]:
+Một số [options] hay dùng:
 --bin: tạo 1 project binary target(src/main.rs), mặc định
 --lib: tạo 1 project library target(src/lib.rs)
 --edition edition: Chỉ định phiên bản Rust: mặc định hiện tại 2021, có thể sử dụng: 2015, 2018, 2021
 --name name: đặt tên package, mặc định là tên thư mục
 Ngoài ra còn 1 số các [options] khác nhưng chúng ta chỉ sử dụng chính các [options] trên
 
-2. cargo build [options]: Compile package hiện tại
+2. cargo build [options]: Compile package hiện tại và tất cả các dependencies của nó
+
+Câu lệnh mặc định cargo build khi build sẽ tạo ra 1 folder target/debug chứa thông tin mã nguồn được compile
+Một số [options] hay dùng:
+-p/ --package: build 1 package cụ thể
+--workspace : build tất cả trong workspace
+ --lib: build package lib
+ --release: Build mode release
+
+ 3. cargo check [options]: check package hiện tại xem có lỗi trong source hay không
+ Các [options] tương tự như cargo build
