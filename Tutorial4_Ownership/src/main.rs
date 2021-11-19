@@ -12,6 +12,8 @@ fn main() {
         println!("s: {}", s);
     }
 
+    let mut str1 = "hello"; // Đây cũng hiểu là string nhưng thực chất nó là 1 chuỗi gồm 5 charactor và được lưu 5 bytes cố định trên ô nhớ và không để sử dụng push để thêm vào biến này.
+
     // Tạo ra biến 1 giá trị = hello cung cấp 1 chuỗi tham chiếu và cấp phát bộ nhớ trên Heap
     let s1 = String::from("hello");
     let s2 = s1;
@@ -30,22 +32,32 @@ fn main() {
     makes_copy(x);
     println!("{}", x); // biến X không lỗi vì biến x là kiểu nguyên thuỷ
 
+    let s1 = gives_ownership(); // gives_ownership moves its return
+                                // value into s1
 
-    let s1 = gives_ownership();         // gives_ownership moves its return
-                                        // value into s1
+    let s2 = String::from("hello"); // s2 comes into scope
 
-    let s2 = String::from("hello");     // s2 comes into scope
-
-    let s3 = takes_and_gives_back(s2);  // s2 is moved into
-                                        // takes_and_gives_back, which also
-                                        // moves its return value into s3
-    //println!("{}", s1); 
+    let s3 = takes_and_gives_back(s2); // s2 is moved into
+                                       // takes_and_gives_back, which also
+                                       // moves its return value into s3
+                                       //println!("{}", s1);
 
     let s1 = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+    let (mut s2, len) = calculate_length(s1);
 
     println!("The length of '{}' is {}.", s2, len);
+
+    // Giá trị tham số s2 là reference mutable nên sau khi truyền vào hàm thì không bị drop vẫn có thể in được ra màn hình
+    let len = reference(&mut s2);
+    println!("The length of '{}' is {}.", s2, len);
+
+    let mut s = String::from("hello");
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    //let r3 = &mut s; // BIG PROBLEM không thể reference cho mutable và imutable
+
+    //println!("{}, {}, and {}", r1, r2, r3);
 }
 
 fn takes_ownership(some_string: String) {
@@ -83,4 +95,9 @@ fn calculate_length(s: String) -> (String, usize) {
     let length = s.len(); // len() returns the length of a String
 
     (s, length)
+}
+
+fn reference(s: &mut String) -> usize {
+    s.push_str(" world");
+    s.len()
 }

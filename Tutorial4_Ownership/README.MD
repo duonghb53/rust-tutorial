@@ -1,6 +1,6 @@
 Nội dung:
 
-Ownership là gì?
+* Ownership là gì?
 Đây là 1 phần rất quan trọng của ngôn ngữ Rust, vì khi hiểu được bản chất được Ownership bạn có thể làm rất nhiều điều và hiểu sâu về cách sử dụng trong Rust
 Tất cả các chương trình khi chạy đều phải quản lý cách chúng sử dụng bộ nhớ.
 - Một vài ngôn ngữ có các bộ gom rác (garbage collection) liên tục tìm kiếm các vùng nhớ lâu không được sử dụng khi chương trình chạy(C#, Java, Python).
@@ -39,11 +39,15 @@ Vì tốc độ(CPU) và bộ nhớ(RAM) của các máy tính hiện tại rấ
 Tuy nhiên khi viết c.trình tương tác với máy(C/C++) thì phần quản lý bộ nhớ lại rất quan trọng, bạn cần theo dõi những dữ liệu nào sử dụng heap, dữ liệu nào sử dụng stack để tránh số lượng dữ liệu trùng lặp trên heap, và giải phóng dữ liệu không sử dụng.
 Trong Rust khi bạn sử dụng Ownership, bạn không cần quan tâm đến heap và stack.
 
-Ownership Rules:
+* Ownership Rules:
 - Mỗi giá trị trong Rust có 1 biến được gọi là owner của nó
 - Tại 1 thời điểm chỉ có 1 owner
-- Owner chỉ có hiệu lực trong scope của nó(tức là bên trong {})
+- Owner chỉ có hiệu lực trong scope của nó, sau đó value sẽ bị drop(xoá)
 
 Rồi ok đi vào code với các ví dụ sử dụng Ownership trên String
 
-Reference: https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html
+* Reference
+** Một số nguyên tắc:
+- Bạn chỉ có thể tham chiếu mutable cho 1 data trong 1 scope
+- Bạn không thể có 1 tham chiếu mut nếu 1 tham chiếu imutable đã tồn tại trong 1 scope
+Nguồn: https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html
