@@ -7,22 +7,21 @@ Tất cả các chương trình khi chạy đều phải quản lý cách chúng
 - Quản lý thủ công: khi sử dụng chúng ta cần cấp phát và giải phóng chúng(ví dụ: C/C++).
 - Rust sử dụng cách tiếp cận thứ 3: quản lý bộ nhớ thông qua ownership tại thời điểm biên dịch.
 
-|                       |            Ưu điểm                         |               Nhược điểm                  |        Ngôn ngữ          |
-|:---------------------:|:-------------------------------------------|:------------------------------------------|:-------------------------|
-|   Bộ gom rác          |   Không quan tâm đến việc quản lý bộ nhớ   |   Không thể quản lý bộ nhớ                |  C#, Java, Python..      |
-|   (Garbage collectiom)|   Không lỗi, giảm thời gian viết code      |   Thời gian biên dịch và chạy lâu hơn     |                          |
-|                       |                                            |   Dung lượng file lớn hơn                 |                          |
-|=======================|============================================|===========================================|==========================|
-|   Quản lý thủ công    |   Có quyển kiếm soát bộ nhớ                |   Gặp lỗi nhiều khi sử dụng               |  C/C++                   |
-|                       |   Chương trình chạy nhanh hơn              |   Viết code lâu hơn và khó hơn            |                          |
-|                       |   Dung lượng file nhỏ                      |                                           |                          |
-|=======================|============================================|===========================================|==========================|
-|     Onwership Model   |   Có quyển kiếm soát bộ nhớ                |  Viết code lâu                            |  Rust, C version 11      |
-|                       |   Chương trình chạy nhanh hơn              |  Học và viết code khác với các ngôn ngữ # |                          |
-|                       |   Dung lượng file nhỏ                      |                                           |                          |
-|                       |   Không lỗi                                |                                           |                          |
-|=======================|============================================|===========================================|==========================|
-
+||Ưu điểm|Nhược điểm|Ngôn ngữ|
+|:---------------------|:-------------------------------------------|:------------------------------------------|:-------------------------|
+|Bộ gom rác|Không quan tâm đến việc quản lý bộ nhớ|Không thể quản lý bộ nhớ|  C#, Java, Python..|
+|(Garbage collectiom)|Không lỗi, giảm thời gian viết code|Thời gian biên dịch và chạy lâu hơn|                          |
+|||Dung lượng file lớn hơn||
+|=====|======|=====|=====|
+|Quản lý thủ công|Có quyển kiếm soát bộ nhớ|Gặp lỗi nhiều khi sử dụng|C/C++|
+||   Chương trình chạy nhanh hơn|Viết code lâu hơn và khó hơn||
+||   Dung lượng file nhỏ|||
+|=====|======|=====|=====|
+|     Onwership Model   |Có quyển kiếm soát bộ nhớ|  Viết code lâu|Rust, C version 11|
+||   Chương trình chạy nhanh hơn|Học và viết code khác với các ngôn ngữ # ||
+||   Dung lượng file nhỏ|||
+||   Không lỗi|||
+|=====|======|=====|=====|
 
 
 Ownership là 1 khái niệm mới với nhiều lập trình viên nên sẽ mất thời gian để hiểu nó, khi bạn sử dụng nó càng thuần thục thì code của bạn càng an toàn và hiệu.
