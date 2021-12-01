@@ -44,8 +44,6 @@ Trong Rust khi bạn sử dụng Ownership, bạn không cần quan tâm đến 
 - Tại 1 thời điểm chỉ có 1 owner
 - Owner chỉ có hiệu lực trong scope của nó, sau đó value sẽ bị drop(xoá)
 
-Rồi ok đi vào code với các ví dụ sử dụng Ownership trên String
-
 * Reference
 ** Một số nguyên tắc:
 - Bạn chỉ có thể tham chiếu mutable cho 1 data trong 1 scope
