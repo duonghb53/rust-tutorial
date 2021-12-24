@@ -183,7 +183,7 @@ fn main() {
             Some(Manager::ViewStudent) =>  manager::view(&students),
             Some(Manager::EditStudent) => manager::edit(&mut students),
             Some(Manager::DeleteStudent) => manager::remove(&mut students),
-            None => return,
+            None => break,
         }
     }
 }
