@@ -1,0 +1,12 @@
+[package]
+name = "wss_sample"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+libp2p = "0.42.2"
+jsonrpc = "0.12.1"
+serde = "1.0.136"
+serde_derive = "1.0.136"
