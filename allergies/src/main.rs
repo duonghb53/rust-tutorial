@@ -20,68 +20,53 @@ impl Allergies {
     }
 
     pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
-        self.score > (*allergen as u32).into()
+        self.score & (allergen.clone() as u32) > 0
     }
 
     pub fn allergies(&self) -> Vec<Allergen> {
-        let mut score = self.score / 256;
-        if score == 0 {
-            score = self.score;
-        } else if score > 1 && self.score % 256 == 0 {
-            score = 256;
-        } else {
-            score = self.score % 256;
-        }
-        let mut vec = Vec::new();
-        let mut allergies = Allergies::new(score);
-
-        while allergies.score >= 1 {
-            if self.is_allergic_to(&Allergen::Cats) {
-                vec.push(Allergen::Cats);
-                allergies = Allergies::new(self.score - 128);
-            } else if self.is_allergic_to(&Allergen::Pollen) {
-                vec.push(Allergen::Pollen);
-                allergies = Allergies::new(self.score - 64);
-            } else if self.is_allergic_to(&Allergen::Chocolate) {
-                vec.push(Allergen::Chocolate);
-                allergies = Allergies::new(self.score - 32);
-            } else if self.is_allergic_to(&Allergen::Tomatoes) {
-                vec.push(Allergen::Tomatoes);
-                allergies = Allergies::new(self.score - 16);
-            } else if self.is_allergic_to(&Allergen::Strawberries) {
-                vec.push(Allergen::Strawberries);
-                allergies = Allergies::new(self.score - 8);
-            } else if self.is_allergic_to(&Allergen::Shellfish) {
-                vec.push(Allergen::Shellfish);
-                allergies = Allergies::new(self.score - 4);
-            } else if self.is_allergic_to(&Allergen::Peanuts) {
-                vec.push(Allergen::Peanuts);
-                allergies = Allergies::new(self.score - 2);
-            } else if self.is_allergic_to(&Allergen::Eggs) {
-                vec.push(Allergen::Eggs);
-                allergies = Allergies::new(self.score - 1);
-            }
-        }
-
-        vec
+        all_allergens()
+            .into_iter()
+            .filter(|m| self.is_allergic_to(m))
+            .collect()
     }
 }
 
-fn main() {
+fn all_allergens() -> Vec<Allergen> {
+    use crate::Allergen;
+    vec![
+        Eggs,
+        Peanuts,
+        Shellfish,
+        Strawberries,
+        Tomatoes,
+        Chocolate,
+        Pollen,
+        Cats,
+    ]
+}
 
+fn main() {
+    use crate::*;
+    let allergies = Allergies::new(5);
+    let all = allergies.allergies();
+
+    /*
+    for  val in all.iter() {
+        println!("Allergen: {:?}", val);
+    }
+    */
 }
 
 #[cfg(test)]
-mod test{
+mod test {
     use crate::*;
 
     #[test]
-    fn check(){
+    fn check() {
         is_not_allergic_to_anything();
         is_allergic_to_eggs();
     }
 }
-
 
 use Allergen::*;
 pub fn compare_allergy_vectors(expected: &[Allergen], actual: &[Allergen]) {
