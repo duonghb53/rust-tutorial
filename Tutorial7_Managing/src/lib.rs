@@ -3,25 +3,12 @@ mod tests {
     #[test]
     fn it_works() {
         let result = 2 + 2;
-        assert_eq!(result, 4);
+        assert_eq!(result, 5);
     }
 }
 
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-
-        fn set_at_table() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
+mod front_of_house;
+pub use crate::front_of_house::hosting;
 
 fn eat_at_retaurant() {
     // Absolute path
