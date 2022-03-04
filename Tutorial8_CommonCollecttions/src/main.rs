@@ -22,7 +22,8 @@ fn main() {
         None => println!("There is no element"),
     }
 
-    //let does_not_exist = v[100];
+    let does_not_exist = v[100];
+    panic!("Out of range index");
     let does_not_exist = v.get(100);
 
     for i in &mut v {
