@@ -3,7 +3,10 @@ pub mod aggregator;
 pub mod lifetimes;
 
 use aggregator::{Summary, Tweet};
-use std::cmp::PartialOrd;
+use std::{
+    cmp::PartialOrd,
+    fmt::{Debug, Display},
+};
 
 fn main() {
     println!("Hello, world!");
@@ -29,11 +32,19 @@ fn main() {
 
     println!("New tweet: {}", tweet.summarize());
 
-    notity(&tweet);
+    notify(&tweet);
 }
 
-pub fn notity<T: Summary>(item: &T) {
+pub fn notify<T: Summary>(item: &T) {
     println!("Breaking news! {}", item.summarize());
+}
+
+pub fn some_function<T, U>(t: &T, u: &U)
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+    // TODO
 }
 
 fn largest<T: PartialOrd + Copy>(list: &[T]) -> T {
