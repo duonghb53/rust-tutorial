@@ -1,0 +1,22 @@
+[package]
+name = "zkp_sample"
+version = "0.1.0"
+edition = "2021"
+author = "DuongHB [duonghb53@gmail.com]"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+near-sdk = "3.1.0"
+zkp-stark = "0.2.1"
+
+[profile.release]
+codegen-units=1
+opt-level = "z"
+lto = true
+debug = false
+panic = "abort"
+overflow-checks = true
