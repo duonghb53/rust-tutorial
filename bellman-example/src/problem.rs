@@ -11,7 +11,6 @@ use bellman::{
 };
 
 use ff::PrimeField;
-use crate::*;
 
 /// Input and output are in little-endian bit order.
 fn impl_sha256<Scalar: PrimeField, CS: ConstraintSystem<Scalar>> (
