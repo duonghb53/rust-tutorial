@@ -1,0 +1,29 @@
+{
+  "name": "UO Appchain#1",
+  "description": "This Otto is going to hatch into something beautiful.",
+  "image": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+  "external_url": "https://openseacreatures.io/3",
+  "alternative_image": "https://openseacreatures.io/31",
+  "image_mime_type": "https://openseacreatures.io/32",
+  "animation_url": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+  "alternative_animation_url": "https://storage.googleapis.com/opensea-prod.appspot.com/puffs/3.png",
+  "animation_mime_type": "https://openseacreatures.io/32",
+  "attributes": [
+    {
+      "trait_type": "Base",
+      "value": "Starfish"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Big"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Surprised"
+    },
+    {
+      "trait_type": "Personality",
+      "value": "Sad"
+    }
+  ]
+}
