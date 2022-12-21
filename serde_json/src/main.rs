@@ -96,13 +96,8 @@ struct UniqueOneBaseMetadata {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-#[serde(transparent)]
-struct Attributes {
-	attribute: Vec<Attribute>
-}
-
-#[derive(Serialize, Deserialize, Debug)]
 struct Attribute {
+	// display_type: String,
 	trait_type: String,
 	value: String,
 }
