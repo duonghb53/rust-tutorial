@@ -97,7 +97,7 @@ struct UniqueOneBaseMetadata {
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Attribute {
-	// display_type: String,
+	display_type: Option<String>,
 	trait_type: String,
 	value: String,
 }
