@@ -1,4 +1,4 @@
-fn main(){
+fn main() {
     let x = 5;
     let y = Some(-111);
 
@@ -24,22 +24,22 @@ enum Balance {
     Small,
     Intermediate,
     Fish,
-    Shark
+    Shark,
 }
 
 enum Coin {
     Solana,
     Ethereum,
     Near,
-    Bitcoin(Balance)
+    Bitcoin(Balance),
 }
 
-fn decimals (coin: Coin) -> u8 {
+fn decimals(coin: Coin) -> u8 {
     match coin {
         Coin::Solana => {
             println!("Solana Match");
             1
-        },
+        }
         Coin::Ethereum => 10,
         Coin::Near => 20,
         Coin::Bitcoin(balance) => {
@@ -52,6 +52,6 @@ fn decimals (coin: Coin) -> u8 {
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
         Some(x) => Some(x + 1),
-        _ => None
+        _ => None,
     }
 }

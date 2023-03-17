@@ -5,13 +5,26 @@ fn main() {
 
     assert_eq!(f.round(), 3.0);
     assert_eq!(g.round(), -3.0);
-
+    let i: u32 = 10;
+    println!("{i}");
+    let mut var = String::from("DuongHB");
     let data = SalesPromotionProductCodeRowForProductCode::new(None);
 
     //println!("{:#?}", data.detail.as_ref().map(|d|d.product_code_id));
     //println!("{:?}", data.detail.as_ref().and_then(|f|Some(f.product_code_id.clone())));
-    println!("{:?}", data.detail.as_ref().map(|f|f.product_code_id.clone()));
-    println!("{:?}", data.detail.as_ref().map(|f|f.period_sales_amount.clone()).flatten());
+    println!(
+        "{:?}",
+        data.detail.as_ref().map(|f| f.product_code_id.clone())
+    );
+    println!(
+        "{:?}",
+        data.detail
+            .as_ref()
+            .map(|f| f.period_sales_amount.clone())
+            .flatten()
+    );
+    let a = "Chạy được Emacs rồi".to_string();
+    println!("{a}");
 }
 
 #[derive(Debug, Clone)]

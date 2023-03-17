@@ -25,7 +25,7 @@ fn main() {
             None
         },
     };
-    println!("unique_one metadata is : {:?}", unique_one_metadata);
+    println!("unique_one metadata is : {:#?}", unique_one_metadata);
     let unique_one_metadata = unique_one_metadata.unwrap();
 
     let title = (unique_one_metadata.name.len() != 0).then_some(unique_one_metadata.name);
@@ -57,7 +57,7 @@ fn main() {
 			reference: None,
 			reference_hash: None,
 		};
-		println!("After, the Nep171 media data is {:?} ", metadata);
+		//println!("After, the Nep171 media data is {:?} ", metadata);
 }
 
 
